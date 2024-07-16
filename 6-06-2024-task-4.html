@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4: Save Name to Session Storage</title>
+</head>
+<body>
+
+<h2>Task 4: Save Name to Session Storage</h2>
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button onclick="saveName()">Save Name</button>
+<button onclick="showName()">Show Name</button>
+<button onclick="clearStorage()">Clear Storage</button>
+
+<script>
+  function saveName() {
+    let name = document.getElementById('nameInput').value;
+    if (name.trim() === '') {
+      alert("Please enter a name.");
+      return;
+    }
+    sessionStorage.setItem('savedName', name);
+    alert(`Name "${name}" saved to session storage.`);
+  }
+
+  function showName() {
+    let savedName = sessionStorage.getItem('savedName');
+    if (savedName) {
+      window.open('', '_blank').document.write(`<h3>${savedName}</h3>`);
+    } else {
+      alert("No name saved in session storage.");
+    }
+  }
+
+  function clearStorage() {
+    sessionStorage.removeItem('savedName');
+    alert("Session storage cleared.");
+  }
+</script>
+
+</body>
+</html>

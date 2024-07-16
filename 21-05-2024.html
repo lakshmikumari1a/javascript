@@ -1,0 +1,113 @@
+
+<html>
+    <head>
+        <pre>
+           
+        </pre>
+
+    </head>
+    <body>
+        <script>
+           // arrays  using the for of loops
+            var a=[1,2,3,4,6,7]
+            for(r of a){
+                console.log(r);
+            }
+            // array using the for loop
+            var c=[1,2,5,7]
+            for(i=0;i<c.length;i++){
+                console.log(c[i]);
+            }
+            // find the how many even number there.
+            var d=[2,7,8,0,4,7]
+            for (s=0;s<d.length;s++){
+                if (d[s]%2==0){
+                console.log("even");
+
+            }            
+            else{
+                console.log("odd");
+            }
+
+            }
+            // find the given if given number if even print the ex:2this is even if odd number ex:7this is odd
+            var c=[1,2,5,4]
+            for(i=0;i<c.length;i++){
+                if(c[i]%2==0){
+                    console.log(c[i] +"this is even");
+                }
+                else{
+                    console.log(c[i] +"this is odd") ;
+                }
+            }
+            //  find the repetition of letter in given string.
+            string ="Ashwini ,varshini,priya"
+            var hi=string.match(/i/ig)
+            console.log(hi);
+            console.log(hi.length);
+            console.log(string.length);
+            // find the given if given number if even print the ex:2this is even if odd number ex:7this is odd
+            var f=[6,90,9,6]
+            for (g=0;g<f.length;g++){
+                if(f[g]%2==0){
+                    console.log(`${f[g]}this is even`);
+                }
+                else{
+                    console.log(`${f[g]} this is odd`);
+                }
+            }
+            // sum of n natural number using function
+            function natural(n) {
+                return (n*(n+1)/2);
+                
+            }
+            console.log(natural(100 ));
+            // change the name into capital letter
+            function transformString(input) {
+        
+          let chars = input.split('_');
+          let result = '';
+          for (let i = 0; i < chars.length; i++) {
+    
+          if (i % 2 === 0) {
+            result += chars[i].toUpperCase();
+            } else {
+           
+            result += chars[i];
+             }
+           }
+
+             return result;
+         }
+
+
+         let input = "ch_ai_ta_ny_a";
+         
+         let output = transformString(input);
+         console.log(output); // Output: ChAiTaNyA
+        //  change name of the _ should write the capital letters
+        h="ch_ai_ta_ny_a";
+       s=""
+        for (n=0;n<h.length;n++){
+            
+            if(h[n]=="_"){
+                n++
+            s+=h[n].toUpperCase()
+            }else{
+                s+=h[n]
+            }
+         }
+           console.log(s);
+        
+  
+     
+      
+     
+
+        
+            
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 17-06-2024 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+</head>
+<body>
+  <div class="card">
+    <h3>Product Details</h3>
+    <img id="productImage" src="" alt="Product Image">
+    <p><strong>Product Name:</strong> <span id="productName"></span></p>
+    <p><strong>Description:</strong> <span id="productDescription"></span></p>
+  </div>
+
+  <script>
+    // Retrieve product details from session storage
+    const productName = sessionStorage.getItem('productName');
+    const description = sessionStorage.getItem('description');
+    const imagePath = sessionStorage.getItem('imagePath');
+
+    // Display product details
+    document.getElementById('productImage').src = imagePath;
+    document.getElementById('productName').textContent = productName;
+    document.getElementById('productDescription').textContent = description;
+  </script>
+</body>
+</html>

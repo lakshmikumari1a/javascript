@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Tasks</title>
+    <style>
+        .even {
+            color: blue;
+        }
+        .odd {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Task 1: <h1> Content -->
+    <h1 id="heading1">Heading 1</h1>
+    <h1 id="heading2">Another Heading</h1>
+
+    <!-- Task 2: <p> Content -->
+    <p id="paragraph1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p id="paragraph2">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+    <!-- Task 3: Different tags with the same class -->
+    <div class="content">First content.</div>
+    <h2 class="content">Second content.</h2>
+    <span class="content">Third content.</span>
+
+    <!-- Task 4: Different tags with the same id -->
+    <p id="content1">Fourth content.</p>
+    <h2 id="content2">Fifth content.</h2>
+    <div id="content3">Sixth content.</div>
+
+    <!-- Task 5: Adding color to tags -->
+    <h3 style="color: green;">Colored Heading</h3>
+    <p style="color: purple;">Colored Paragraph</p>
+    <div class="colored-content" style="color: orange;">Colored Content</div>
+
+    <!-- Task 6: Displaying even and odd numbers -->
+    <div id="numbers"></div>
+
+    <script>
+        // Task 1: Concatenating <h1> Content
+        let heading1 = document.getElementById('heading1').textContent;
+        let heading2 = document.getElementById('heading2').textContent;
+        let concatenatedHeadings = heading1 + ' ' + heading2;
+        console.log('Concatenated <h1> Content:', concatenatedHeadings);
+
+        // Task 2: Concatenating <p> Content
+        let paragraph1 = document.getElementById('paragraph1').textContent;
+        let paragraph2 = document.getElementById('paragraph2').textContent;
+        let concatenatedParagraphs = paragraph1 + ' ' + paragraph2;
+        console.log('Concatenated <p> Content:', concatenatedParagraphs);
+
+        // Task 3: Concatenating Content by Class Name
+        let elements = document.getElementsByClassName('content');
+        let concatenatedContentByClass = '';
+        for (let element of elements) {
+            concatenatedContentByClass += element.textContent + ' ';
+        }
+        console.log('Concatenated Content by Class Name:', concatenatedContentByClass);
+
+        // Task 4: Concatenating Content by ID
+        let content1 = document.getElementById('content1').textContent;
+        let content2 = document.getElementById('content2').textContent;
+        let content3 = document.getElementById('content3').textContent;
+        let concatenatedContentById = content1 + ' ' + content2 + ' ' + content3;
+        console.log('Concatenated Content by ID:', concatenatedContentById);
+
+        // Task 6: Displaying even and odd numbers
+        let numbersDiv = document.getElementById('numbers');
+        let numbers = '';
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 0) {
+                numbers += `<span class="even">${i}</span> `;
+            } else {
+                numbers += `<span class="odd">${i}</span> `;
+            }
+        }
+        numbersDiv.innerHTML = numbers;
+    </script>
+</body>
+</html>

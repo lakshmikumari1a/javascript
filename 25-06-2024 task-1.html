@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration and Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="registration-form">
+    <h2>Register</h2>
+    <input type="text" id="firstName" placeholder="First Name" required>
+    <input type="text" id="lastName" placeholder="Last Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+    <button onclick="register()">Register</button>
+    <div class="message" id="registration-message"></div>
+  </div>
+
+  <div class="container" id="login-form">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <div class="message" id="login-message"></div>
+  </div>
+
+  <script>
+    function register() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const mobileNumber = document.getElementById('mobileNumber').value;
+
+      // Simulate sending data to the server
+      const registrationData = {
+        firstName,
+        lastName,
+        email,
+        password,
+        mobileNumber
+      };
+
+      // For simplicity, store user data in localStorage
+      localStorage.setItem('user', JSON.stringify(registrationData));
+      document.getElementById('registration-message').textContent = 'Registration successful!';
+    }
+
+    function login() {
+      const loginEmail = document.getElementById('loginEmail').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+
+      if (storedUser && storedUser.email === loginEmail && storedUser.password === loginPassword) {
+        document.getElementById('login-message').textContent = 'Success.';
+      } else {
+        document.getElementById('login-message').textContent = 'Check the data.';
+      }
+    }
+  </script>
+</body>
+</html>

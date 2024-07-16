@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Base class Shape
+class Shape {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+  }
+}
+
+// Subclass Circle inheriting from Shape
+class Circle extends Shape {
+  constructor(name, color, radius) {
+    super(name, color);
+    this.radius = radius;
+  }
+
+  // Method to calculate circumference
+  calculateCircumference() {
+    return 2 * Math.PI * this.radius;
+  }
+
+  // Method to calculate area
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+// Subclass Rectangle inheriting from Shape
+class Rectangle extends Shape {
+  constructor(name, color, width, height) {
+    super(name, color);
+    this.width = width;
+    this.height = height;
+  }
+
+  // Method to calculate area
+  calculateArea() {
+    return this.width * this.height;
+  }
+
+  // Method to calculate perimeter
+  calculatePerimeter() {
+    return 2 * (this.width + this.height);
+  }
+}
+
+// Example usage
+const circle = new Circle('Circle', 'red', 5);
+console.log('Circle Area:', circle.calculateArea().toFixed(2)); // Output: 78.54
+
+const rect = new Rectangle('Rectangle', 'blue', 5, 10);
+console.log('Rectangle Perimeter:', rect.calculatePerimeter()); // Output: 30
+
+    </script>
+</body>
+</html>

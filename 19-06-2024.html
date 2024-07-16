@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group .error-message {
+      color: red;
+      font-size: 14px;
+    }
+    .form-group.success input {
+      border-color: green;
+    }
+    .form-group.error input {
+      border-color: red;
+    }
+    .form-group.success .error-message {
+      display: none;
+    }
+    .form-group.error .error-message {
+      display: block;
+    }
+    .form-group button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateLogin()">
+      <div class="form-group">
+        <label for="username">Username (5-10 characters):</label>
+        <input type="text" id="username" name="username">
+        <div class="error-message" id="usernameError"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password (5-10 characters):</label>
+        <input type="password" id="password" name="password">
+        <div class="error-message" id="passwordError"></div>
+      </div>
+      <div class="form-group">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const usernameError = document.getElementById('usernameError');
+      const passwordError = document.getElementById('passwordError');
+
+      let isValid = true;
+
+      // Validate username
+      if (username.length < 5 || username.length > 10) {
+        usernameError.textContent = 'Username must be between 5 and 10 characters.';
+        isValid = false;
+      } else {
+        usernameError.textContent = '';
+      }
+
+      // Validate password
+      if (password.length < 5 || password.length > 10) {
+        passwordError.textContent = 'Password must be between 5 and 10 characters.';
+        isValid = false;
+      } else {
+        passwordError.textContent = '';
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum of User Input</title>
+<script>
+  function calculateSum() {
+    let userInput = prompt("Enter a number:");
+    // Convert userInput to string and split into array of characters
+    let digits = userInput.toString().split('');
+    let sum = 0;
+    // Iterate through each character and sum the digits
+    for (let digit of digits) {
+      sum += parseInt(digit);
+    }
+    alert(`Sum of digits: ${sum}`);
+  }
+</script>
+</head>
+<body>
+
+<button onclick="calculateSum()">Calculate Sum</button>
+
+</body>
+</html>

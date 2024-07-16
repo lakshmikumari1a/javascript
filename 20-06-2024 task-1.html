@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  // Method to calculate area
+  calculateArea() {
+    return this.width * this.height;
+  }
+
+  // Method to calculate perimeter
+  calculatePerimeter() {
+    return 2 * (this.width + this.height);
+  }
+}
+
+// Example usage
+const rect = new Rectangle(5, 10);
+console.log('Area:', rect.calculateArea()); // Output: 50
+console.log('Perimeter:', rect.calculatePerimeter()); // Output: 30
+
+    </script>
+</body>
+</html>

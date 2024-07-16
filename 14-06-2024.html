@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date of Birth Validation</title>
+</head>
+<body>
+  <div>
+    <h2>Date of Birth Validation</h2>
+    <label for="dob">Enter date of birth (DD-MM-YYYY): </label>
+    <input type="text" id="dob" placeholder="Enter date of birth">
+    <button onclick="validateDOB()">Validate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function validateDOB() {
+      const dobInput = document.getElementById('dob').value;
+      const dobParts = dobInput.split('-');
+      
+      // Ensure correct format and valid date
+      if (dobParts.length !== 3 || dobParts.some(part => isNaN(parseInt(part, 10)))) {
+        displayResult('Invalid date format. Please enter in DD-MM-YYYY format.');
+        return;
+      }
+      
+      // Extract day, month, year
+      const day = parseInt(dobParts[0], 10);
+      const month = parseInt(dobParts[1], 10) - 1; // Month in JavaScript is zero-indexed
+      const year = parseInt(dobParts[2], 10);
+      
+      // Create Date objects for current date and input date of birth
+      const currentDate = new Date();
+      const inputDOB = new Date(year, month, day);
+
+      // Compare dates
+      if (inputDOB <= currentDate) {
+        displayResult('Date of birth is accepted.');
+      } else {
+        displayResult('Date of Birth is Invalid. Please check the date of birth.');
+      }
+    }
+
+    function displayResult(message) {
+      document.getElementById('result').textContent = message;
+    }
+  </script>
+</body>
+</html>

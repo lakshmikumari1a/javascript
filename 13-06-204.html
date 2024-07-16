@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Operations with Functions</title>
+</head>
+<body>
+  <div>
+    <h2>Dynamic Operations with Functions</h2>
+    <button onclick="runFunctions()">Run Functions</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    // Function to calculate factorial
+    function calculateFactorial(num) {
+      if (num === 0 || num === 1) {
+        return 1;
+      }
+      return num * calculateFactorial(num - 1);
+    }
+
+    // Function to check if a number is prime
+    function checkPrime(num) {
+      if (num <= 1) {
+        return false;
+      }
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // Function to generate Fibonacci series up to n terms
+    function generateFibonacci(n) {
+      let fibSeries = [];
+      let a = 0, b = 1, temp;
+      for (let i = 0; i < n; i++) {
+        fibSeries.push(a);
+        temp = a + b;
+        a = b;
+        b = temp;
+      }
+      return fibSeries;
+    }
+
+    // Function to reverse a string
+    function reverseString(str) {
+      return str.split('').reverse().join('');
+    }
+
+    // Function to calculate sum of array elements
+    function calculateSum(arr) {
+      return arr.reduce((total, num) => total + num, 0);
+    }
+
+    // Function to run all example functions and display output
+    function runFunctions() {
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+
+      // Example operations
+      const num = 5;
+      const factorialResult = calculateFactorial(num);
+      const primeResult = checkPrime(num);
+      const fibonacciResult = generateFibonacci(10);
+      const reverseResult = reverseString('hello');
+      const sumResult = calculateSum([1, 2, 3, 4, 5]);
+
+      outputDiv.innerHTML += `<p>Factorial of ${num}: ${factorialResult}</p>`;
+      outputDiv.innerHTML += `<p>${num} is prime: ${primeResult}</p>`;
+      outputDiv.innerHTML += `<p>Fibonacci Series: ${fibonacciResult.join(', ')}</p>`;
+      outputDiv.innerHTML += `<p>Reverse of 'hello': ${reverseResult}</p>`;
+      outputDiv.innerHTML += `<p>Sum of [1, 2, 3, 4, 5]: ${sumResult}</p>`;
+    }
+  </script>
+</body>
+</html>

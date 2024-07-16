@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 1: Concatenate Strings to Local Storage</title>
+</head>
+<body>
+
+<script>
+  // Prompt user for three strings
+  let a = prompt("Enter the first string:");
+  let b = prompt("Enter the second string:");
+  let c = prompt("Enter the third string:");
+
+  // Concatenate the strings
+  let concatenatedString = `${a} ${b} ${c}`;
+
+  // Save concatenated string to local storage
+  localStorage.setItem('concatenatedString', concatenatedString);
+  alert(`Concatenated string saved to local storage: ${concatenatedString}`);
+</script>
+
+</body>
+</html>

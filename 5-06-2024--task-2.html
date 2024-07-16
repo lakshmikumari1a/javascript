@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Text Color on Click</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .red-text {
+    color: red;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2 id="clickable-text" class="red-text">Click me to change color!</h2>
+
+<script>
+  const clickableText = document.getElementById('clickable-text');
+
+  clickableText.addEventListener('click', function() {
+    if (this.classList.contains('red-text')) {
+      this.classList.remove('red-text');
+      this.style.color = 'black';
+    } else {
+      this.classList.add('red-text');
+      this.style.color = 'red';
+    }
+  });
+</script>
+
+</body>
+</html>

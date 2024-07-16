@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Form Validation Example</h2>
+  <form id="validationForm">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      <span class="error-message" id="firstNameError"></span>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      <span class="error-message" id="lastNameError"></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span class="error-message" id="emailError"></span>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+      <span class="error-message" id="phoneError"></span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" minlength="8" required>
+      <span class="error-message" id="passwordError"></span>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('validationForm');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (validateForm()) {
+      alert('Form submitted successfully!');
+      // Code to process form submission goes here
+    }
+  });
+
+  function validateForm() {
+    let isValid = true;
+
+    // Validate each input field
+    isValid = validateField('firstName', 'firstNameError') && isValid;
+    isValid = validateField('lastName', 'lastNameError') && isValid;
+    isValid = validateField('email', 'emailError') && isValid;
+    isValid = validateField('phone', 'phoneError') && isValid;
+    isValid = validateField('password', 'passwordError') && isValid;
+
+    return isValid;
+  }
+
+  function validateField(fieldName, errorId) {
+    const field = document.getElementById(fieldName);
+    const error = document.getElementById(errorId);
+
+    if (field.checkValidity()) {
+      error.textContent = '';
+      return true;
+    } else {
+      error.textContent = field.validationMessage;
+      return false;
+    }
+  }
+</script>
+
+</body>
+</html>

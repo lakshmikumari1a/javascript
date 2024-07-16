@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Base class Vehicle
+class Vehicle {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+}
+
+// Subclass Car inheriting from Vehicle
+class Car extends Vehicle {
+  constructor(make, model, year, doors) {
+    super(make, model, year);
+    this.doors = doors;
+  }
+
+  // Method specific to Car
+  displayDetails() {
+    return `${this.year} ${this.make} ${this.model}, ${this.doors} doors`;
+  }
+}
+
+// Subclass Motorcycle inheriting from Vehicle
+class Motorcycle extends Vehicle {
+  constructor(make, model, year, engineDisplacement) {
+    super(make, model, year);
+    this.engineDisplacement = engineDisplacement;
+  }
+
+  // Method specific to Motorcycle
+  displayDetails() {
+    return `${this.year} ${this.make} ${this.model}, ${this.engineDisplacement}cc`;
+  }
+}
+
+// Example usage
+const car = new Car('Toyota', 'Camry', 2022, 4);
+console.log('Car Details:', car.displayDetails()); // Output: 2022 Toyota Camry, 4 doors
+
+const motorcycle = new Motorcycle('Honda', 'CBR500R', 2021, 500);
+console.log('Motorcycle Details:', motorcycle.displayDetails()); // Output: 2021 Honda CBR500R, 500cc
+
+    </script>
+</body>
+</html>

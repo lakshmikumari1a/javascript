@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 18-06-2024 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container label, .form-container input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form-container input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="handleRegistration(event)">
+      <label for="regUsername">Username:</label>
+      <input type="text" id="regUsername" name="regUsername" required>
+
+      <label for="regPassword">Password:</label>
+      <input type="password" id="regPassword" name="regPassword" required>
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <script>
+    function handleRegistration(event) {
+      event.preventDefault();
+
+      // Fetch form values
+      const regUsername = document.getElementById('regUsername').value;
+      const regPassword = document.getElementById('regPassword').value;
+
+      // Perform validation (simple example)
+      if (regUsername.trim() === '' || regPassword.trim() === '') {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Store registration data (example: in session storage)
+      sessionStorage.setItem('regUsername', regUsername);
+      sessionStorage.setItem('regPassword', regPassword);
+
+      // Optional: Redirect to login page
+      alert('Registration successful!');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

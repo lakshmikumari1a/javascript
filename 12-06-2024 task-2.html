@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2: Spread Operator</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Task 2: Spread Operator</h2>
+  <pre id="spreadOutput"></pre>
+</div>
+
+<script>
+  // Example objects
+  const defaults = {
+    theme: 'light',
+    fontSize: 16
+  };
+
+  const customSettings = {
+    ...defaults,
+    fontSize: 18,
+    fontFamily: 'Arial'
+  };
+
+  // Display output
+  const spreadOutput = `
+    Merged object:
+    ${JSON.stringify(customSettings, null, 2)}
+  `;
+  document.getElementById('spreadOutput').textContent = spreadOutput;
+</script>
+
+</body>
+</html>

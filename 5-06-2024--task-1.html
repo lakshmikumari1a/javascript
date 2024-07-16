@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Images Based on Radio Button Selection</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .food-image {
+    max-width: 100%;
+    height: auto;
+    display: none; /* Initially hide images */
+  }
+</style>
+</head>
+<body>
+
+<h2>Select a Food:</h2>
+
+<input type="radio" id="pani-puri" name="food" value="pani-puri" checked>
+<label for="pani-puri">Pani Puri</label>
+
+<input type="radio" id="bhel-puri" name="food" value="bhel-puri">
+<label for="bhel-puri">Bhel Puri</label>
+
+<br><br>
+
+<img src="https://www.livofy.com/health/wp-content/uploads/2023/05/Care-1-2-1024x576.png" alt="Pani Puri" class="food-image" id="pani-puri-image">
+<img src="https://i1.wp.com/vegecravings.com/wp-content/uploads/2018/06/Bhel-Puri-Recipe-Step-By-Step-Instructions.jpg?fit=1972%2C1874&quality=30&strip=all&ssl=1" alt="Bhel Puri" class="food-image" id="bhel-puri-image">
+
+<script>
+  const paniPuriRadio = document.getElementById('pani-puri');
+  const bhelPuriRadio = document.getElementById('bhel-puri');
+  const paniPuriImage = document.getElementById('pani-puri-image');
+  const bhelPuriImage = document.getElementById('bhel-puri-image');
+
+  paniPuriRadio.addEventListener('change', function() {
+    if (this.checked) {
+      paniPuriImage.style.display = 'inline-block';
+      bhelPuriImage.style.display = 'none';
+    }
+  });
+
+  bhelPuriRadio.addEventListener('change', function() {
+    if (this.checked) {
+      bhelPuriImage.style.display = 'inline-block';
+      paniPuriImage.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

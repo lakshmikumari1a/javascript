@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 1: Rest Operator</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Task 1: Rest Operator</h2>
+  <pre id="restOutput"></pre>
+</div>
+
+<script>
+  // Example object
+  const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    email: 'john.doe@example.com'
+  };
+
+  // Using rest operator to iterate object properties
+  const { firstName, ...rest } = person;
+
+  // Display output
+  const restOutput = `
+    First Name: ${firstName}
+    Remaining properties:
+    ${JSON.stringify(rest, null, 2)}
+  `;
+  document.getElementById('restOutput').textContent = restOutput;
+</script>
+
+</body>
+</html>

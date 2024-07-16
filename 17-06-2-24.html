@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>Product Name</h3>
+    <img src="https://s.yimg.com/fz/api/res/1.2/vRlWiQHO_2jcptN0cdg70Q--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpdDtoPTI2MDtxPTgwO3c9MzMy/https://s.yimg.com/zb/imgv1/c59abd02-3664-3a54-a1d4-23c2802e42e6/t_500x300" alt="Product Image">
+    <p>Description of the product.</p>
+    <button onclick="seeMore()">See More</button>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+
+  <script>
+    function seeMore() {
+      // Retrieve product details
+      const productName = document.querySelector('.card h3').textContent;
+      const description = document.querySelector('.card p').textContent;
+      const imagePath = document.querySelector('.card img').getAttribute('src');
+
+      // Store data in session storage
+      sessionStorage.setItem('productName', productName);
+      sessionStorage.setItem('description', description);
+      sessionStorage.setItem('imagePath', imagePath);
+
+      // Redirect to product-details.html
+      window.location.href = 'product-details.html';
+    }
+
+    function addToCart() {
+      // Increment cart count in local storage
+      let cartCount = localStorage.getItem('cartCount') || 0;
+      cartCount = parseInt(cartCount) + 1;
+      localStorage.setItem('cartCount', cartCount);
+
+      // Store product details with a unique key
+      const productKey = `product_${cartCount}`;
+      const productName = document.querySelector('.card h3').textContent;
+      const description = document.querySelector('.card p').textContent;
+      const imagePath = document.querySelector('.card img').getAttribute('src');
+      localStorage.setItem(productKey, JSON.stringify({ name: productName, description: description, imagePath: imagePath }));
+
+      // Alert user (optional)
+      alert('Product added to cart!');
+    }
+  </script>
+</body>
+</html>

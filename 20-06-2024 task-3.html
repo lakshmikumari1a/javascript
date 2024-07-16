@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee {
+  constructor(name, position, salary) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
+  }
+
+  // Method to calculate yearly bonus
+  calculateYearlyBonus() {
+    // Example: Bonus is 10% of the salary
+    return 0.1 * this.salary;
+  }
+}
+
+// Example usage
+const emp = new Employee('Alice', 'Manager', 60000);
+console.log('Yearly Bonus:', emp.calculateYearlyBonus()); // Output: 6000
+
+    </script>
+</body>
+</html>

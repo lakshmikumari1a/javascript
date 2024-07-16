@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+    <style>
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Tasks</h2>
+
+    <h3>Task 1: Flatten an array without using any methods</h3>
+    <pre id="task1Output"></pre>
+
+    <h3>Task 2: Print values above 3 and store them in a new array</h3>
+    <pre id="task2Output"></pre>
+
+    <h3>Task 3: Check if all values are above 1</h3>
+    <pre id="task3Output"></pre>
+
+    <h3>Task 4: Convert an array into a string</h3>
+    <pre id="task4Output"></pre>
+
+    <h3>Task 5: Convert array into a specific format</h3>
+    <pre id="task5Output"></pre>
+
+    <script>
+        // Task 1: Flatten an array without using any methods
+        let input = [1, [2, 4, 5], [3, [4, 6, 7]], 4];
+        let output = [];
+
+        function flattenArray(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    flattenArray(arr[i]);
+                } else {
+                    output.push(arr[i]);
+                }
+            }
+        }
+
+        flattenArray(input);
+        document.getElementById("task1Output").textContent = JSON.stringify(output);
+
+        // Task 2: Print values above 3 and store them in a new array
+        let array = [2, 5, 3, 8, 1, 4];
+        let aboveThree = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > 3) {
+                console.log(array[i]);
+                aboveThree.push(array[i]);
+            }
+        }
+
+        document.getElementById("task2Output").textContent = JSON.stringify(aboveThree);
+
+        // Task 3: Check if all values are above 1
+        let arrayToCheck = [2, 3, 4, 5];
+        let allAboveOne = true;
+
+        for (let i = 0; i < arrayToCheck.length; i++) {
+            if (arrayToCheck[i] <= 1) {
+                allAboveOne = false;
+                break;
+            }
+        }
+
+        document.getElementById("task3Output").textContent = allAboveOne ? "true" : "false";
+
+        // Task 4: Convert an array into a string
+        let arrayToString = [2, 3, 4, 5, 5, 6, 7, 7, 8, 9];
+        let stringOutput = "";
+
+        for (let i = 0; i < arrayToString.length; i++) {
+            stringOutput += arrayToString[i];
+        }
+
+        document.getElementById("task4Output").textContent = stringOutput;
+
+        // Task 5: Convert array into a specific format
+        let names = ["hello", "kumar", "raju"];
+        let formattedOutput = [];
+
+        for (let i = 0; i < names.length; i++) {
+            let vowels = "";
+            let consonants = "";
+
+            for (let j = 0; j < names[i].length; j++) {
+                if ("aeiou".includes(names[i][j].toLowerCase())) {
+                    vowels += names[i][j];
+                } else {
+                    consonants += names[i][j];
+                }
+            }
+
+            formattedOutput.push([vowels, consonants]);
+        }
+
+        document.getElementById("task5Output").textContent = JSON.stringify(formattedOutput);
+    </script>
+</body>
+</html>

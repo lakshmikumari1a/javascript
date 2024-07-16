@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class BankAccount {
+  constructor(accountNumber, accountHolder, balance) {
+    this.accountNumber = accountNumber;
+    this.accountHolder = accountHolder;
+    this.balance = balance;
+  }
+
+  // Method to deposit money
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  // Method to withdraw money
+  withdraw(amount) {
+    if (amount <= this.balance) {
+      this.balance -= amount;
+    } else {
+      console.log('Insufficient funds.');
+    }
+  }
+}
+
+// Example usage
+const account = new BankAccount('123456789', 'John Doe', 1000);
+console.log('Initial Balance:', account.balance); // Output: 1000
+account.deposit(500);
+console.log('After Deposit:', account.balance); // Output: 1500
+account.withdraw(200);
+console.log('After Withdrawal:', account.balance); // Output: 1300
+
+    </script>
+</body>
+</html>

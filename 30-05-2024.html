@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Dropdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  select {
+    font-size: 16px;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Dynamic Dropdown</h2>
+
+<!-- Dropdown select element -->
+<select id="dropdown">
+  <option value="">Select an option</option>
+</select>
+
+<script>
+  // Array of strings
+  const stringsArray = ["Apple", "Banana", "Cherry", "Date", "Fig"];
+
+  // Get the select element
+  const dropdown = document.getElementById("dropdown");
+
+  // Populate dropdown with options from stringsArray
+  stringsArray.forEach((str, index) => {
+    const option = document.createElement("option");
+    option.value = index; // Assign index as value (optional)
+    option.textContent = str;
+    dropdown.appendChild(option);
+  });
+
+  // Event listener for dropdown change
+  dropdown.addEventListener("change", function() {
+    const selectedOption = this.options[this.selectedIndex].textContent;
+    const lengthIsEven = selectedOption.length % 2 === 0;
+    
+    if (lengthIsEven) {
+      console.log(1); // Display 1 in console if length is even
+    } else {
+      console.log(0); // Display 0 in console if length is odd
+    }
+  });
+</script>
+
+</body>
+</html>

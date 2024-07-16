@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  // Method to calculate circumference
+  calculateCircumference() {
+    return 2 * Math.PI * this.radius;
+  }
+
+  // Method to calculate area
+  calculateArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+// Example usage
+const circle = new Circle(5);
+console.log('Circumference:', circle.calculateCircumference().toFixed(2)); // Output: 31.42
+console.log('Area:', circle.calculateArea().toFixed(2)); // Output: 78.54
+
+    </script>
+</body>
+</html>

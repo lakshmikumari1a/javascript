@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Constructor and Methods</title>
+</head>
+<body>
+  <script>
+    // Constructor function
+    function Car(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+
+    // Function to show car details
+    function showCarDetails(color, owner) {
+      console.log(`This ${this.year} ${this.make} ${this.model} is ${color} and owned by ${owner}.`);
+    }
+
+    const myCar = new Car('Toyota', 'Camry', 2021);
+    console.log(`This car is a ${myCar.year} ${myCar.make} ${myCar.model}.`);
+
+    // Using call
+    showCarDetails.call(myCar, 'blue', 'Alice');
+    // Output: This 2021 Toyota Camry is blue and owned by Alice.
+
+    // Using apply
+    const detailsArray = ['blue', 'Alice'];
+    showCarDetails.apply(myCar, detailsArray);
+    // Output: This 2021 Toyota Camry is blue and owned by Alice.
+
+    // Using bind
+    const displayBoundDetails = showCarDetails.bind(myCar);
+    displayBoundDetails('red', 'Bob');
+    // Output: This 2021 Toyota Camry is red and owned by Bob.
+  </script>
+</body>
+</html>
